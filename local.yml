@@ -17,16 +17,13 @@
   - name: install snapd from aur
     aur: 
       name: snapd
+    become: yes
+    become_user: llm1n01 
   - name: Install htop
     pacman:
       name: htop
       state: present
     tags: base
-  - name: Install snapd
-    pacman:
-      name: snapd
-      state: present
-    tags: snap
   - name: Make sure snap is enabled and not masked
     systemd:
       name: snapd.socket
