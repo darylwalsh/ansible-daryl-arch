@@ -1,0 +1,29 @@
+{
+  "name": "ansible-llm1n01-arch",
+  "version": "0.1.1",
+  "description": "Ansible provisioning for arch based workstation",
+  "main": "local.yml",
+  "scripts": {
+    "test": "molecule"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darylwalsh/ansible-daryl-arch.git"
+  },
+  "keywords": [
+    "Ansible",
+    "Arch",
+    "Linux",
+    "i3",
+    "fish",
+    "termite",
+    "tmux",
+    "vim"
+  ],
+  "author": "Daryl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darylwalsh/ansible-daryl-arch/issues"
+  },
+  "homepage": "https://github.com/darylwalsh/ansible-daryl-arch#readme"
+}

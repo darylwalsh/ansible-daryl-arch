@@ -82,6 +82,13 @@
       name: chromium
       channel: latest/edge
     tags: webbrowsers
+  
+  - name: Install vs code with --channel=latest/edge
+    snap:
+      name: code
+      channel: latest/stable
+      classic: yes
+    tags: vscode
 
   - name: Install qutebrowser
     pacman:
