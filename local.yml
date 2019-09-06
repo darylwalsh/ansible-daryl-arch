@@ -9,6 +9,37 @@
       name: htop
       state: present
     tags: base
+  - name: Install snapd
+    pacman:
+      name: snapd
+      state: present
+    tags: snap
+  - name: Make sure snap is enabled and not masked
+    systemd:
+      name: snapd.socket
+      enabled: yes
+      masked: no
+    tags: snap
+  - name: Make sure a service is running
+    systemd:
+      state: started
+      name: snapd.socket
+    tags: snap
+  - name: Create symlink snapd service
+    file: 
+      src: /var/lib/snapd/snap
+      dest: /snap 
+      state: link
+    tags: snap
+  - name: Execute task with extended PATH
+    lineinfile: 
+      path: /etc/profile
+      line: "export PATH=\$PATH:\/snap/bin/"
+      state: present
+    tags: snap
+  - name: source /etc/profile
+    shell: source /etc/profile
+    tags: snap
   - name: Install neovim
     pacman: 
       name: neovim
