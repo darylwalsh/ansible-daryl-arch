@@ -15,7 +15,7 @@
       create: yes
       validate: 'visudo -cf %s'
   - name: install snapd from aur
-  - aur: 
+    aur: 
       name: snapd
   - name: Install htop
     pacman:
