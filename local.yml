@@ -107,9 +107,9 @@
       state: present
     tags: chat
   - name: Create directory for minpac neovim
-      file:
-        path: /home/llm1n01/.config/nvim/pack/minpac/opt
-        state: directory
+    file:
+      path: /home/llm1n01/.config/nvim/pack/minpac/opt
+      state: directory
     tags: vim 
   - name: Checkout minpac repo 
     git: 
