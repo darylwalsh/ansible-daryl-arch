@@ -70,24 +70,6 @@
       name: tmux
       state: present
     tags: cli
-  - name: Install powerline 
-    pacman: 
-      name: "{{ packages }}"
-      state: present
-    vars:
-      packages:
-      - powerline        
-    tags: cli
-  - name: Install tmux
-    pacman: 
-      name: tmux
-      state: present
-    tags: cli
-  - name: Install tmux
-    pacman: 
-      name: tmux
-      state: present
-    tags: cli
   - name: Install Brave web browser with --channel=latest/edge
     snap:
       name: brave
