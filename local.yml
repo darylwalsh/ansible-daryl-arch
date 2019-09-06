@@ -34,7 +34,7 @@
   - name: Execute task with extended PATH
     lineinfile: 
       path: /etc/profile
-      line: "export PATH=\$PATH:\/snap/bin/"
+      line: "export PATH=$PATH:/snap/bin/"
       state: present
     tags: snap
   - name: source /etc/profile
