@@ -18,7 +18,7 @@
     aur: 
       name: snapd
     become: yes
-    become_user: llm1n01 
+    become_user: aur_builder 
   - name: Install htop
     pacman:
       name: htop
