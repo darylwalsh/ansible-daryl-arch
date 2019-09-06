@@ -70,11 +70,6 @@
       name: tmux
       state: present
     tags: cli
-  - name: Install Brave web browser with --channel=latest/edge
-    snap:
-      name: brave
-      channel: latest/edge
-    tags: webbrowsers
 
   - name: Install KeePassXC pw mgr with --channel=latest/edge
     snap:
@@ -89,22 +84,22 @@
     tags: webbrowsers
 
   - name: Install qutebrowser
-    apt:
+    pacman:
       name: qutebrowser
       state: present
     tags: webbrowsers
 
   - name: Install PCmanFM
-    apt:
+    pacman:
       name: pcmanfm
       state: present
     tags: filemanagers
 
-  - name: Install arandr
-    apt:
-      name: arandr
-      state: present
-    tags: display     
+
+
+
+
+
        
        
        
