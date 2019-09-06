@@ -15,10 +15,10 @@
       create: yes
       validate: 'visudo -cf %s'
   - name: install snapd from aur
-    aur: 
+    aur:
       name: snapd
     become: yes
-    become_user: aur_builder 
+    become_user: aur_builder
   - name: Install htop
     pacman:
       name: htop
@@ -36,13 +36,13 @@
       name: snapd.socket
     tags: snap
   - name: Create symlink snapd service
-    file: 
+    file:
       src: /var/lib/snapd/snap
-      dest: /snap 
+      dest: /snap
       state: link
     tags: snap
   - name: Execute task with extended PATH
-    lineinfile: 
+    lineinfile:
       path: /etc/profile
       line: "export PATH=$PATH:/snap/bin/"
       state: present
@@ -51,22 +51,22 @@
     shell: source /etc/profile
     tags: snap
   - name: Install neovim
-    pacman: 
+    pacman:
       name: neovim
       state: present
     tags: vim
   - name: Install python-neovim
-    pacman: 
+    pacman:
       name: python-neovim
       state: present
     tags: vim
   - name: Install fish
-    pacman: 
+    pacman:
       name: fish
       state: present
-    tags: cli 
+    tags: cli
   - name: Install tmux
-    pacman: 
+    pacman:
       name: tmux
       state: present
     tags: cli
@@ -82,7 +82,7 @@
       name: chromium
       channel: latest/edge
     tags: webbrowsers
-  
+
   - name: Install vs code with --channel=latest/edge
     snap:
       name: code
@@ -101,7 +101,7 @@
       name: pcmanfm
       state: present
     tags: filemanagers
-  - name: Install weechat 
+  - name: Install weechat
     pacman:
       name: weechat
       state: present
@@ -110,18 +110,35 @@
     file:
       path: /home/llm1n01/.config/nvim/pack/minpac/opt
       state: directory
-    tags: vim 
-  - name: Checkout minpac repo 
-    git: 
-      repo: 'https://github.com/k-takata/minpac.git'
-      dest: /home/llm1n01/.config/nvim/pack/minpac/opt
     tags: vim
+  - name: Checkout minpac repo
+    git:
+      repo: 'https://github.com/k-takata/minpac.git'
+      dest: /home/llm1n01/.config/nvim/pack/minpac/opt/minpac
+    tags: vim
+  - name: Install VirtualBox
+    pacman:
+      name: virtualbox
+      state: present
+    tags: virtualbox
+  - name: Install virtualbox-host-modules-arch
+    pacman:
+      name: virtualbox-host-modules-arch
+      state: present
+    tags: virtualbox
+  - name: Install linux headers
+    pacman:
+      name: linux-headers
+      state: present
+    tags: virtualbox
 
 
 
 
 
-       
-       
-       
+
+
+
+
+
 
