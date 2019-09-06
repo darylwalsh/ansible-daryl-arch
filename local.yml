@@ -1,0 +1,33 @@
+---
+- name: Install arch linux workstation apps
+  hosts: localhost
+  connection: local
+  become: true
+  tasks: 
+  - name: Install htop
+    pacman:
+      name: htop
+      state: present
+    tags: base
+  - name: Install neovim
+    pacman: 
+      name: neovim
+      state: present
+    tags: vim
+  - name: Install python-neovim
+    pacman: 
+      name: python-neovim
+      state: present
+    tags: vim
+  - name: Install fish
+    pacman: 
+      name: fish
+      state: present
+    tags: cli 
+  - name: Install tmux
+    pacman: 
+      name: tmux
+      state: present
+    tags: cli
+       
+
