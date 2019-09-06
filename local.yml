@@ -3,7 +3,20 @@
   hosts: localhost
   connection: local
   become: true
-  tasks: 
+  tasks:
+  - name: Create aur_builder user
+  - user:
+      name: aur_builder
+      group: wheel
+  - name: add aur_builder to passwordless sudoers
+    lineinfile:
+      path: /etc/sudoers.d/11-install-aur_builder
+      line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+      create: yes
+      validate: 'visudo -cf %s'
+  - name: install snapd from aur
+  - aur: 
+      name: snapd
   - name: Install htop
     pacman:
       name: htop
