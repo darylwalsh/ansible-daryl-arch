@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.3...v0.1.4) (2019-09-07)
+
+
+### Features
+
+* **docker_daemon:** add default config for docker server ([ee839e8](https://github.com/darylwalsh/ansible-daryl-arch/commit/ee839e8))
+
 ### [0.1.3](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.2...v0.1.3) (2019-09-07)
 
 
