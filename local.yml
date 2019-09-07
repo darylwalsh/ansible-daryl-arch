@@ -4,6 +4,15 @@
   connection: local
   become: true
   tasks:
+  - name: install C/C++ development tools
+    pacman:
+      name:
+        - base-devel
+        - cmake
+        - premake
+        - gdb
+        - valgrind
+    become: true
   - name: Create aur_builder user
     user:
       name: aur_builder
@@ -121,16 +130,59 @@
       name: virtualbox
       state: present
     tags: virtualbox
-  - name: Install virtualbox-host-modules-arch
-    pacman:
-      name: virtualbox-host-modules-arch
-      state: present
-    tags: virtualbox
+  #- name: Install virtualbox-host-modules-arch
+    # pacman:
+      #  name: virtualbox-host-modules-arch
+      # state: present
+    # tags: virtualbox
   - name: Install linux headers
     pacman:
       name: linux-headers
       state: present
     tags: virtualbox
+  - name: install Docker
+    pacman:
+      name: docker
+    become: true
+
+  - name: configure Docker user namespace remap range
+    copy:
+      dest: /etc/subuid
+      content: |
+        default:165536:4096
+      mode: 0644
+    become: true
+
+  - name: configure Docker group namespace remap range
+    copy:
+      dest: /etc/subgid
+      content: |
+        default:165536:4096
+      mode: 0644
+    become: true
+
+  - name: create /etc/docker directory
+    file:
+      path: /etc/docker
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+    become: true
+
+  - name: configure Docker daemon
+    copy:
+      src: daemon.json
+      dest: /etc/docker/daemon.json
+      mode: 0644
+    become: true
+
+  - name: start Docker daemon
+    systemd:
+      name: docker.service
+      state: started
+      enabled: true
+    become: true
 
 
 
