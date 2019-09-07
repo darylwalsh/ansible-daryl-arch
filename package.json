@@ -15,10 +15,6 @@
     "prepublishOnly": "npm run ci:validate && npm run build",
     "test": "molecule"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/darylwalsh/ansible-daryl-arch.git"
-  },
   "keywords": [
     "Ansible",
     "Arch",
@@ -31,21 +27,24 @@
   ],
   "author": "Daryl",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/darylwalsh/ansible-daryl-arch/issues"
-  },
-  "homepage": "https://github.com/darylwalsh/ansible-daryl-arch#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "ansible-lint": "^1.0.7",
     "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.23",
     "conventional-github-releaser": "^3.1.3",
+    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.3.0",
     "git-authors-cli": "^1.0.18",
+    "global": "^4.4.0",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
+    "node-fetch": "^2.6.0",
+    "now": "^16.2.0",
     "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
+    "scaffdog": "^0.1.2",
     "standard-version": "^7.0.0"
   },
   "config": {
