@@ -1,6 +1,6 @@
 {
   "name": "ansible-llm1n01-arch",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Ansible provisioning for arch based workstation",
   "main": "local.yml",
   "scripts": {
