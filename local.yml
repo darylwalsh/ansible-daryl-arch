@@ -183,6 +183,26 @@
       state: started
       enabled: true
     become: true
+  - name: Install smplayer
+    pacman:
+      name: smplayer
+      state: present
+    tags: smplayer
+  - name: Install smplayer-themes
+    pacman:
+      name: smplayer-themes
+      state: present
+    tags: smplayer
+  - name: Install smtube
+    pacman:
+      name: smtube
+      state: present
+    tags: smplayer
+  - name: Install smplayer-skins
+    pacman:
+      name: smplayer-skins
+      state: present
+    tags: smplayer
 
 
 
