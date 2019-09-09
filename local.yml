@@ -3,13 +3,13 @@
   hosts: localhost
   connection: local
   become: true
-  roles:
-  - role: 'roles/ansible-role-asdf'
-    asdf_plugins:
-    - name: "java"
-      versions: ["oracle-8.131","openjdk-11.0.1"]
-      global: ["oracle-8.131"]
   tasks:
+  - import_role:
+      name: ansible-role-asdf
+      asdf_plugins:
+      - name: "java"
+        versions: ["oracle-8.131","openjdk-11.0.1"]
+        global: "oracle-8.131"
   - name: install C/C++ development tools
     pacman:
       name:
