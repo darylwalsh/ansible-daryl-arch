@@ -1,6 +1,6 @@
 {
   "name": "ansible-llm1n01-arch",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Ansible provisioning for arch based workstation",
   "main": "local.yml",
   "scripts": {
@@ -10,7 +10,7 @@
     "prerelease": "git-authors-cli && git add .",
     "release": "standard-version -a",
     "postrelease": "run-s release:*",
-      "release:tags": "git push --follow-tags origin master",
+    "release:tags": "git push --follow-tags origin master",
     "release:github": "conventional-github-releaser -p angular",
     "ci:validate": "rm -rf node_modules && npm ci && npm run validate",
     "prepublishOnly": "npm run ci:validate && npm run build",
