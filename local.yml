@@ -4,7 +4,7 @@
   connection: local
   become: true
   roles:
-  - role: ansible-role-asdf
+  - role: 'roles/ansible-role-asdf'
     asdf_plugins:
     - name: "java"
       versions: ["oracle-8.131","openjdk-11.0.1"]
