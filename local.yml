@@ -255,7 +255,7 @@
       name:
         - vagrant
         - virtualbox
-        - virtualbox-host-modules-arch
+          # - virtualbox-host-modules-arch
       state: present
     tags: virtualbox
   #- name: Install virtualbox-host-modules-arch
@@ -263,11 +263,11 @@
       #  name: virtualbox-host-modules-arch
       # state: present
     # tags: virtualbox
-  - name: Install linux headers
-    pacman:
-      name: linux-headers
-      state: present
-    tags: virtualbox
+    # - name: Install linux headers
+    #pacman:
+    # name: linux-headers
+    #  state: present
+    # tags: virtualbox
   - name: install Docker
     pacman:
       name: docker
