@@ -87,10 +87,13 @@
       state: present
     tags: cli
 
-  - name: Install KeePassXC pw mgr with --channel=latest/edge
-    snap:
-      name: keepassxc
-      channel: latest/edge
+  - name: Install KeePass pw mgr
+    pacman:
+      name:
+        - keepass
+        - xdotool
+        - xsel
+      state: present
     tags: security
 
   - name: Install Chromium web browser with --channel=latest/edge
@@ -124,13 +127,13 @@
     tags: chat
   - name: Create directory for minpac neovim
     file:
-      path: /home/llm1n01/.config/nvim/pack/minpac/opt
+      path: /home/{{ ansible_user_id }}/.config/nvim/pack/minpac/opt
       state: directory
     tags: vim
   - name: Checkout minpac repo
     git:
       repo: 'https://github.com/k-takata/minpac.git'
-      dest: /home/llm1n01/.config/nvim/pack/minpac/opt/minpac
+      dest: /home/{{ ansible_user_id }}/.config/nvim/pack/minpac/opt/minpac
     tags: vim
   - name: Install VirtualBox
     pacman:
@@ -151,45 +154,45 @@
     pacman:
       name: docker
     become: true
+    tags: docker
+  #- name: configure Docker user namespace remap range
+    # copy:
+      # dest: /etc/subuid
+      # content: |
+        # default:165536:4096
+      # mode: 0644
+    # become: true
 
-  - name: configure Docker user namespace remap range
-    copy:
-      dest: /etc/subuid
-      content: |
-        default:165536:4096
-      mode: 0644
-    become: true
+  #- name: configure Docker group namespace remap range
+    # copy:
+      # dest: /etc/subgid
+      # content: |
+        # default:165536:4096
+      # mode: 0644
+    # become: true
 
-  - name: configure Docker group namespace remap range
-    copy:
-      dest: /etc/subgid
-      content: |
-        default:165536:4096
-      mode: 0644
-    become: true
+  #- name: create /etc/docker directory
+    # file:
+      # path: /etc/docker
+      # state: directory
+      # owner: root
+      # group: root
+      # mode: 0755
+    # become: true
 
-  - name: create /etc/docker directory
-    file:
-      path: /etc/docker
-      state: directory
-      owner: root
-      group: root
-      mode: 0755
-    become: true
+  #- name: configure Docker daemon
+    # copy:
+      # src: daemon.json
+      # dest: /etc/docker/daemon.json
+      # mode: 0644
+    # become: true
 
-  - name: configure Docker daemon
-    copy:
-      src: daemon.json
-      dest: /etc/docker/daemon.json
-      mode: 0644
-    become: true
-
-  - name: start Docker daemon
-    systemd:
-      name: docker.service
-      state: started
-      enabled: true
-    become: true
+  #- name: start Docker daemon
+    # systemd:
+      # name: docker.service
+      # state: started
+      # enabled: true
+    # become: true
   - name: Install smplayer
     pacman:
       name: smplayer
