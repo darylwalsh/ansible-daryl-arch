@@ -173,34 +173,34 @@
       dest: /home/{{ ansible_user_id }}/.config/nvim/pack/minpac/opt/minpac
       version: master
     tags: vim
-  - name: configure init.vim
-    copy:
-      src: init.vim
-      dest: /home/{{ archlinux_user_id }}/.config/nvim/init.vim
-      owner: "{{ archlinux_user_id }}"
-      group: users
-    become: true
-    become_user: "{{ archlinux_user_id }}"
-    tags: vim
-  - name: configure i3
-    copy:
-      src: config
-      dest: /home/{{ archlinux_user_id }}/i3/config
-      backup: yes
-      owner: "{{ archlinux_user_id }}"
-      group: users
-    become: true
-    become_user: "{{ archlinux_user_id }}"
-    tags: i3
-  - name: configure i3blocks
-    copy:
-      src: config.toml
-      dest: /home/{{ archlinux_user_id }}/i3/config.toml
-      owner: "{{ archlinux_user_id }}"
-      group: users
-    become: true
-    become_user: "{{ archlinux_user_id }}"
-    tags: i3
+    #- name: configure init.vim
+    #copy:
+    # src: init.vim
+    #  dest: /home/{{ archlinux_user_id }}/.config/nvim/init.vim
+    #  owner: "{{ archlinux_user_id }}"
+    #  group: users
+    #become: true
+    #become_user: "{{ archlinux_user_id }}"
+    # tags: vim
+    #- name: configure i3
+    #copy:
+    #  src: config
+    # dest: /home/{{ archlinux_user_id }}/i3/config
+    #  backup: yes
+    #  owner: "{{ archlinux_user_id }}"
+    #  group: users
+    # become: true
+    #become_user: "{{ archlinux_user_id }}"
+    #tags: i3
+    # - name: configure i3blocks
+    #copy:
+    # src: config.toml
+    # dest: /home/{{ archlinux_user_id }}/i3/config.toml
+    # owner: "{{ archlinux_user_id }}"
+    # group: users
+    #become: true
+    #become_user: "{{ archlinux_user_id }}"
+    #tags: i3
   - name: Install fish
     pacman:
       name: fish
