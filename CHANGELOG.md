@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.10...v0.1.11) (2019-09-13)
+
+
+### Features
+
+* **docker_user:** remove extra docker config ([5cbe726](https://github.com/darylwalsh/ansible-daryl-arch/commit/5cbe726))
+
 ### [0.1.10](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.9...v0.1.10) (2019-09-13)
 
 
