@@ -2,6 +2,8 @@
 - name: Install arch linux workstation apps
   hosts: localhost
   become: true
+  vars:
+   - archlinux_user_id: 'barko187'
   tasks:
   - name: create normal user
     user:
