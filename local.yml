@@ -185,7 +185,7 @@
   - name: configure i3
     copy:
       src: config
-      dest: /home/{{ archlinux_user_id }}/.config/i3/config
+      dest: /home/{{ archlinux_user_id }}/i3/config
       backup: yes
       owner: "{{ archlinux_user_id }}"
       group: users
@@ -195,7 +195,7 @@
   - name: configure i3blocks
     copy:
       src: config.toml
-      dest: /home/{{ archlinux_user_id }}/.config/i3/config.toml
+      dest: /home/{{ archlinux_user_id }}/i3/config.toml
       owner: "{{ archlinux_user_id }}"
       group: users
     become: true
