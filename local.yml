@@ -1,7 +1,6 @@
 ---
 - name: Install arch linux workstation apps
-  hosts: local
-  connection: local
+  hosts: localhost
   become: true
   tasks:
   - name: create normal user
