@@ -1,6 +1,6 @@
 ---
 - name: Install arch linux workstation apps
-  hosts: localhost
+  hosts: local
   connection: local
   become: true
   tasks:
