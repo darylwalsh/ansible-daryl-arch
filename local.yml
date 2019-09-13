@@ -6,7 +6,7 @@
   tasks:
   - name: create normal user
     user:
-      name: "{{ archlinux_username }}"
+      name: "{{ archlinux_user_id }}"
       create_home: true
       group: users
       groups:
