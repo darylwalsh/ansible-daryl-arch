@@ -31,28 +31,28 @@
       name: pacman-contrib
     become: true
 
-  - name: install reflector
-    pacman:
-      name: reflector
-    become: true
+    #- name: install reflector
+    # pacman:
+    # name: reflector
+    # become: true
 
-  - name: check if mirrorlist was recently updated
-    find:
-      paths:
-        - /etc/pacman.d/mirrorlist
-      age: 1d
-    register: mirrorlist_age
+    #- name: check if mirrorlist was recently updated
+    # find:
+    #  paths:
+    #    - /etc/pacman.d/mirrorlist
+    #  age: 1d
+    # register: mirrorlist_age
 
-  - name: update pacman mirrorlist
-    command: >-
-      /usr/bin/reflector
-      --country "United States"
-      -l 200
-      -p http
-      --sort rate
-      --save /etc/pacman.d/mirrorlist
-    become: true
-    when: mirrorlist_age.matched|int > 0
+    # - name: update pacman mirrorlist
+    # command: >-
+    #  /usr/bin/reflector
+    #  --country "United States"
+    #  -l 200
+    #  -p http
+    #  --sort rate
+    #  --save /etc/pacman.d/mirrorlist
+    #become: true
+    #when: mirrorlist_age.matched|int > 0
 
   - name: perform full upgrade
     pacman:
