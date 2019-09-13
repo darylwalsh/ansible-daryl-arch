@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.9...v0.1.10) (2019-09-13)
+
+
+### Features
+
+* **roles:** remove asdf role ([f9e80c1](https://github.com/darylwalsh/ansible-daryl-arch/commit/f9e80c1))
+
 ### [0.1.9](https://github.com/darylwalsh/ansible-daryl-arch/compare/v0.1.8...v0.1.9) (2019-09-09)
 
 
