@@ -221,18 +221,19 @@
       state: present
     tags: security
 
-  - name: Install Chromium web browser with --channel=latest/edge
-    snap:
-      name: chromium
-      channel: latest/edge
-    tags: webbrowsers
+  # - name: Install Chromium web browser with --channel=latest/edge
+  #   snap:
+  #     name: chromium
+  #     channel: latest/edge
+  #     classic: yes
+  #   tags: webbrowsers
 
-  - name: Install vs code with --channel=latest/edge
-    snap:
-      name: code
-      channel: latest/stable
-      classic: yes
-    tags: vscode
+  # - name: Install vs code with --channel=latest/edge
+  #   snap:
+  #     name: code
+  #     channel: latest/stable
+  #     classic: yes
+  #   tags: vscode
 
   - name: Install qutebrowser
     pacman:
