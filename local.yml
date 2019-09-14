@@ -31,28 +31,28 @@
       name: pacman-contrib
     become: true
 
-    #- name: install reflector
-    # pacman:
-    # name: reflector
-    # become: true
+  - name: install reflector
+    pacman:
+      name: reflector
+    become: true
 
-    #- name: check if mirrorlist was recently updated
-    # find:
-    #  paths:
-    #    - /etc/pacman.d/mirrorlist
-    #  age: 1d
-    # register: mirrorlist_age
+  - name: check if mirrorlist was recently updated
+    find:
+     paths:
+       - /etc/pacman.d/mirrorlist
+     age: 1d
+    register: mirrorlist_age
 
-    # - name: update pacman mirrorlist
-    # command: >-
-    #  /usr/bin/reflector
-    #  --country "United States"
-    #  -l 200
-    #  -p http
-    #  --sort rate
-    #  --save /etc/pacman.d/mirrorlist
-    #become: true
-    #when: mirrorlist_age.matched|int > 0
+  - name: update pacman mirrorlist
+    command: >-
+     /usr/bin/reflector
+     --country "United States"
+     -l 200
+     -p http
+     --sort rate
+     --save /etc/pacman.d/mirrorlist
+    become: true
+    when: mirrorlist_age.matched|int > 0
 
   - name: perform full upgrade
     pacman:
@@ -173,34 +173,34 @@
       dest: /home/{{ ansible_user_id }}/.config/nvim/pack/minpac/opt/minpac
       version: master
     tags: vim
-    #- name: configure init.vim
-    #copy:
-    # src: init.vim
-    #  dest: /home/{{ archlinux_user_id }}/.config/nvim/init.vim
-    #  owner: "{{ archlinux_user_id }}"
-    #  group: users
-    #become: true
-    #become_user: "{{ archlinux_user_id }}"
-    # tags: vim
-    #- name: configure i3
-    #copy:
-    #  src: config
-    # dest: /home/{{ archlinux_user_id }}/i3/config
-    #  backup: yes
-    #  owner: "{{ archlinux_user_id }}"
-    #  group: users
-    # become: true
-    #become_user: "{{ archlinux_user_id }}"
-    #tags: i3
-    # - name: configure i3blocks
-    #copy:
-    # src: config.toml
-    # dest: /home/{{ archlinux_user_id }}/i3/config.toml
-    # owner: "{{ archlinux_user_id }}"
-    # group: users
-    #become: true
-    #become_user: "{{ archlinux_user_id }}"
-    #tags: i3
+  - name: configure init.vim
+    copy:
+      src: init.vim
+      dest: /home/{{ archlinux_user_id }}/.config/nvim/init.vim
+      owner: "{{ archlinux_user_id }}"
+      group: users
+    become: true
+    become_user: "{{ archlinux_user_id }}"
+    tags: vim
+  - name: configure i3
+    copy:
+      src: config
+      dest: /home/{{ archlinux_user_id }}/.config/i3/config
+      backup: yes
+      owner: "{{ archlinux_user_id }}"
+      group: users
+    become: true
+    become_user: "{{ archlinux_user_id }}"
+    tags: i3
+  - name: configure i3blocks
+    copy:
+      src: config.toml
+      dest: /home/{{ archlinux_user_id }}/.config/i3/config.toml
+      owner: "{{ archlinux_user_id }}"
+      group: users
+    become: true
+    become_user: "{{ archlinux_user_id }}"
+    tags: i3
   - name: Install fish
     pacman:
       name: fish
